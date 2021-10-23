@@ -18,7 +18,7 @@ $hash = $input->postString("hash");
 $dif = time() - $unixtime;
 
 if ($dif > 60) {
-    echo json_encode(["message" => "Invaild timewindow","action" => "restartSlow"]);
+    echo json_encode(["message" => "Invaild timewindow","action" => "wait", "time" => 120]);
     die();
 }
 
@@ -30,7 +30,7 @@ $check = substr(sha1(implode("#", $bits)), 0, 5);
 
 
 if ($hash != $check) {
-    echo json_encode(["message" => "Checks failed","action" => "restartSlow"]);
+    echo json_encode(["message" => "Checks failed","action" => "wait", "time" => 120]);
     die();
 }
 
@@ -50,3 +50,5 @@ foreach ($product_names as $product) {
     file_put_contents($filename, $version_entrys[$loop]);
     $loop++;
 }
+
+echo json_encode(["message" => "OK","action" => "wait", "time" => (60 * 60)]);

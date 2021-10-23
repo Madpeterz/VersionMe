@@ -1,5 +1,5 @@
 {
     "require": {
-        "madpeterz/yetonemorephpframework": "^3.0"
+        "madpeterz/yapfinputfilter": "^1.0"
     }
 }

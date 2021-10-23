@@ -10,4 +10,6 @@ COPY .docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 
 WORKDIR /srv/website
 
-RUN apt-get update && composer install --no-dev
+RUN apt-get update \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    && composer install --no-dev
