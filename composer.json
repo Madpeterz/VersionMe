@@ -1,0 +1,5 @@
+{
+    "require": {
+        "madpeterz/yetonemorephpframework": "^3.0"
+    }
+}
