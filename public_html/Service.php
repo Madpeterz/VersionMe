@@ -38,7 +38,7 @@ if ($hash != $check) {
 if (is_dir("products") == false) {
     mkdir("products");
 }
-
+include "Helpers.php";
 $product_names = explode("#", $products);
 delTree("products", $product_names);
 $version_entrys = explode("#", $versions);
