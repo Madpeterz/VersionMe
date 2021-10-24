@@ -43,6 +43,9 @@ $product_names = explode("#", $products);
 delTree("products", $product_names);
 $version_entrys = explode("#", $versions);
 $loop = 0;
+if (is_dir("products") == false) {
+    mkdir("products");
+}
 foreach ($product_names as $product) {
     $filename = "products/" . $product . "-ver.txt";
     if (file_exists($filename) == true) {
