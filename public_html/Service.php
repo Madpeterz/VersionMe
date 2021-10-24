@@ -25,7 +25,7 @@ if ($dif > 60) {
 $products = str_replace(".", "-", $products);
 $versions = str_replace(".", "-", $versions);
 
-$bits = [$products,$unixtime,$versions,$saltCode,"hot"];
+$bits = [$products,$versions,$unixtime,$saltCode,"hot"];
 $check = substr(sha1(implode("#", $bits)), 0, 5);
 
 
@@ -51,4 +51,4 @@ foreach ($product_names as $product) {
     $loop++;
 }
 
-echo json_encode(["message" => "OK","action" => "wait", "time" => (60 * 60)]);
+echo json_encode(["message" => "OK","action" => "continue"]);
