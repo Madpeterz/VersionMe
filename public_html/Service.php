@@ -26,11 +26,12 @@ $products = str_replace(".", "-", $products);
 $versions = str_replace(".", "-", $versions);
 
 $bits = [$products,$versions,$unixtime,$saltCode,"hot"];
-$check = substr(sha1(implode("#", $bits)), 0, 5);
+$raw = implode("#", $bits);
+$check = substr(sha1($raw), 0, 5);
 
 
 if ($hash != $check) {
-    echo json_encode(["message" => "Checks failed","action" => "wait", "time" => 120]);
+    echo json_encode(["message" => "Checks failed","raw" => $raw,"check" => $check,"action" => "wait", "time" => 120]);
     die();
 }
 
